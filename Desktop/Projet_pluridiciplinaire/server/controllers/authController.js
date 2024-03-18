@@ -55,6 +55,12 @@ const loginUser = async (req, res) => {
       httpOnly: true,
       secure : true
     });
+    // send userRoles as 
+    res.cookie("token", refreshToken, {
+      maxAge:  30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure : true
+    });
     // send acess token to the client side
     res.json({ accessToken });
   } else {

@@ -22,7 +22,7 @@ app.get("/", async (req, res) => {
 //protected route
 app.get("/protected", verify, async (req, res) => {
   const user = req.user;
-  console.log(user);
+  // user = decoded (access_token)
   const userFound = await User.findOne({ email: user.user });
   res.send(userFound);
 });
